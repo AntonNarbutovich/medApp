@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.medappv2.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/navigate_to_examinations"
+            app:destination="@id/nav_tests">
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.medappv2.ui.settings.GallerySettings"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.medappv2.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_logout"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_tests"
+        android:name="com.example.medappv2.ui.analysis.ExaminationsFragment"
+        android:label="@string/medical_tests"
+        tools:layout="@layout/fragment_examinations">
+        <action
+            android:id="@+id/navigate_to_description"
+            app:destination="@id/nav_test_descr">
+            <argument
+                android:name="date"
+                app:argType="string" /></action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_test_descr"
+        android:name="com.example.medappv2.ui.analysis.MedicalTestScreenFragment"
+        android:label="@string/medical_tests"
+        tools:layout="@layout/fragment_test_screen">
+        <argument
+            android:name="date"
+            app:argType="string" />
+    </fragment>
+</navigation>
